@@ -1,0 +1,8 @@
+Installation:
+
+1. Please clone kolZhutNLP project and execute "mvn clean install" for it.
+2. extract under dataFile folder, "dataFiles.zip" contant inside this folder.
+3. from Server.java choose your hostname and port and run the service.
+4. in order to invoke the service invoke get resuest to the following url "http://{hostname}:{port}/rest/categorize?query=שאילתה בעיברית
+
+Enjoy

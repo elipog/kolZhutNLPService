@@ -1,0 +1,32 @@
+#!/bin/csh
+
+echo "Setting Environment variables ..."
+
+setenv PATH  "/opt/lampp/bin/mysql:/usr/java/jdk1.5.0_05/bin:${PATH}:/usr/local/source/srilm/bin:/usr/local/source/srilm/bin/i686:/usr/local/source/srilm/MorphTagger:."
+setenv LANG he_IL
+setenv PERL5LIB /usr/local/source/srilm/MorphTagger
+
+echo "running make command ...."
+make
+
+
+#echo "Do you want to run the Server ?(y-yes, n-no)"
+#set RunServer = ($<)
+#if( $RunServer == 'y') then
+	#./RunServer	
+	echo "Insert the Port number (e.g. 4443, you can use 'netstat -apn' to find out active ports)"
+	set PortNum = ($<)
+#	echo "Do you want to run the Client in new shell?(y-yes, n-no)"	
+#	set RunClient = ($<)
+#	if( $RunClient == 'y') then
+#		xterm -e ./RunClient $PortNum &
+#	endif	
+	echo "java -Xmx2G -cp morphAnalyzer.jar:. Server $PortNum "
+	java -Xmx2G -cp morphAnalyzer.jar:. Server $PortNum 				
+#endif
+
+	
+	
+	
+echo "*** Finished Successfully ***"
+

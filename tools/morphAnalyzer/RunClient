@@ -1,0 +1,20 @@
+#!/bin/csh
+
+echo "Files under the current directory:"
+ll
+echo "Insert Port Number"
+set PortNum=($<);
+echo "Insert Input file/directory"
+set Input = ($<)
+echo "Insert Output file/directory"
+set Output = ($<)	
+echo "Wait until you see 'load2Memory Elapsed time = ...' in the Server window then Press Enter";	
+set Continue = ($<)
+echo "java -Xmx2G -cp morphAnalyser.jar:. Client $Input $Output $PortNum localhost"
+java -Xmx2G -cp morphAnalyser.jar:. Client $Input $Output $PortNum localhost 
+
+echo "******* Client finished successfully *******"
+echo "Press 'Enter' to close the Client Window"
+set End = ($<)		
+
+
